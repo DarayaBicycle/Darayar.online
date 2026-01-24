@@ -1,0 +1,223 @@
+# BatteryDARAYAR — 12V 3S2P 18650 PowerPack
+
+> **ปรัชญาเจ้าเป่า**: ทุกโมดูลและเอกสารต้องสะท้อนความชัดเจน ความไว้วางใจ และความเป็นเลิศที่ยั่งยืน
+
+---
+
+## 🔋 Configuration
+- **Cell Type:** 18650 Lithium-ion  
+- **Pack Layout:** 3S2P (3 series × 2 parallel)  
+- **Nominal Voltage:** 11.1V  
+- **Max Voltage:** 12.6V  
+- **Typical Capacity:** 4000mAh × 2 = ~8000mAh  
+
+---
+
+## 📊 Specifications
+
+| Parameter        | Value                                |
+|------------------|--------------------------------------|
+| Cell Count       | 6 (3S2P)                             |
+| Nominal Voltage  | 11.1V                                |
+| Max Voltage      | 12.6V                                |
+| Typical Capacity | 4000mAh per cell (≈ 8000mAh total)   |
+| Dimensions       | Custom pack size                     |
+| Weight           | ~260g                                |
+| Shell Material   | Aluminum / Polymer                   |
+| Applications     | E-bikes, portable tools, audio gear  |
+| Warranty         | 1 year                               |
+
+---
+
+## 📝 Notes
+- ใช้ **BMS (Battery Management System)** เพื่อความปลอดภัยและอายุการใช้งานที่ยาวนาน  
+- เหมาะสำหรับการใช้งานที่ต้องการความเสถียร เช่น อุปกรณ์เสียง และระบบพลังงานพกพา  
+- บรรจุภัณฑ์: กล่องกระดาษมาตรฐาน  
+
+---
+
+## 📦 Packaging & Branding
+- **Brand:** DALAYAR Bicycle Lifestyle Co., Ltd.  
+- **Color:** Silver  
+- **Philosophy:** *เจ้าเป่า* — โปร่งใส, น่าเชื่อถือ, ยั่งยืน  
+
+---
+
+© 2026 DALAYAR — BatteryDARAYAR Documentation
+
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BatteryDARAYAR - 12V 3S2P 18650 PowerPack</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>BatteryDARAYAR</h1>
+    <p>12V 3S2P 18650 PowerPack</p>
+  </header>
+
+  <section>
+    <h2>Configuration</h2>
+    <ul>
+      <li>3S2P (3 series × 2 parallel)</li>
+      <li>Nominal Voltage: 12.6V (max), 11.1V (nominal)</li>
+      <li>Cell Type: 18650 Li-ion</li>
+      <li>Capacity: ~ 5,200–6,000 mAh (depends on cell rating)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Specifications</h2>
+    <table>
+      <tr>
+        <th>Parameter</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>Cell Count</td>
+        <td>6 (3S2P)</td>
+      </tr>
+      <tr>
+        <td>Nominal Voltage</td>
+        <td>11.1V</td>
+      </tr>
+      <tr>
+        <td>Max Voltage</td>
+        <td>12.6V</td>
+      </tr>
+      <tr>
+        <td>Capacity</td>
+        <td>Depends on cell (e.g., 2600mAh × 2 = 5200mAh)</td>
+      </tr>
+      <tr>
+        <td>Dimensions</td>
+        <td>Custom pack size</td>
+      </tr>
+      <tr>
+        <td>Applications</td>
+        <td>SpotWeld Pro, e-bikes, portable tools</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Notes</h2>
+    <p>
+      This pack is designed under DALAYAR’s <em>เจ้าเป่า</em> philosophy: clarity, trust, and sustainable excellence.
+      Ensure proper BMS integration for safety and longevity.
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2026 DALAYAR Bicycle Lifestyle Co., Ltd. — BatteryDARAYAR Documentation
+  </footer>
+</body>
+</html>
+
+style.css
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  padding: 10px;
+  background: #222;
+  color: #fff;
+}
+
+section {
+  margin: 20px 0;
+  padding: 15px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+script.js
+document.addEventListener("DOMContentLoaded", () => {
+  // ====== Table Sorting ======
+  const table = document.querySelector("table");
+  const headers = table.querySelectorAll("th");
+
+  headers.forEach((header, index) => {
+    header.addEventListener("click", () => {
+      sortTable(table, index);
+    });
+  });
+
+  function sortTable(table, colIndex) {
+    const rows = Array.from(table.rows).slice(1);
+    const sorted = rows.sort((a, b) => {
+      const valA = a.cells[colIndex].innerText.toLowerCase();
+      const valB = b.cells[colIndex].innerText.toLowerCase();
+      return valA.localeCompare(valB);
+    });
+    sorted.forEach(row => table.appendChild(row));
+  }
+
+  // ====== Section Toggle ======
+  document.querySelectorAll("section h2").forEach(h2 => {
+    h2.style.cursor = "pointer";
+    h2.addEventListener("click", () => {
+      const content = h2.nextElementSibling;
+      content.style.display = 
+        content.style.display === "none" ? "block" : "none";
+    });
+  });
+
+  // ====== Dark Mode Toggle ======
+  const footer = document.querySelector("footer");
+  const toggleBtn = document.createElement("button");
+  toggleBtn.innerText = "Toggle Dark Mode";
+  toggleBtn.style.marginTop = "10px";
+  footer.appendChild(toggleBtn);
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+  });
+
+  // ====== Highlight on Hover ======
+  table.querySelectorAll("td").forEach(cell => {
+    cell.addEventListener("mouseenter", () => {
+      cell.style.backgroundColor = "#ffeaa7";
+    });
+    cell.addEventListener("mouseleave", () => {
+      cell.style.backgroundColor = "";
+    });
+  });
+});
