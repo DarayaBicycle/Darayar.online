@@ -1,0 +1,22 @@
+name = "invoice-appdarayar-worker"
+main = "src/index.js"
+compatibility_date = "2026-01-31"
+
+[vars]
+# ตัวแปลความลับที่ Worker จะใช้
+คนงาน.พัฒนา = "app-darayar.invoice-appdarayarworkersdev.workers.dev"
+ดูตัวอย่างURL = "*app-darayar.invoice-appdarayarworkersdev.workers.dev"
+
+[env.development]
+# กำหนด environment สำหรับการพัฒนา
+vars = { 
+  คนงาน.พัฒนา = "app-darayar.invoice-appdarayarworkersdev.workers.dev",
+  ดูตัวอย่างURL = "*-app-darayar.invoice-appdarayarworkersdev.workers.dev"
+}
+
+[env.production]
+# กำหนด environment สำหรับ production
+vars = { 
+  คนงาน.พัฒนา = "app-darayar.invoice-appdarayarworkersdev.workers.dev",
+  ดูตัวอย่างURL = "*-app-darayar.invoice-appdarayarworkersdev.workers.dev"
+}
