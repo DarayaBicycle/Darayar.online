@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice Appdarayar Worker Config</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f9f9f9; margin: 20px; color: #333; }
+    h1 { color: #0066cc; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    th { background: #eee; }
+    .env-title { margin-top: 30px; font-size: 1.2em; color: #444; }
+    .buttons { margin-top: 20px; }
+    button { padding: 10px 15px; margin-right: 10px; cursor: pointer; border: none; border-radius: 5px; }
+    .dev { background: #ffcc00; }
+    .prod { background: #00cc66; color: #fff; }
+  </style>
+</head>
+<body>
+  <h1>⚙️ Invoice Appdarayar Worker Configuration</h1>
+
+  <table>
+    <tr><th>Key</th><th>Value</th></tr>
+    <tr><td>name</td><td>invoice-appdarayar-worker</td></tr>
+    <tr><td>main</td><td>src/index.js</td></tr>
+    <tr><td>compatibility_date</td><td>2026-01-31</td></tr>
+    <tr><td>คนงาน.พัฒนา</td><td>app-darayar.invoice-appdarayarworkersdev.workers.dev</td></tr>
+    <tr><td>ดูตัวอย่างURL</td><td>*app-darayar.invoice-appdarayarworkersdev.workers.dev</td></tr>
+  </table>
+
+  <div class="buttons">
+    <button class="dev" onclick="showEnv('development')">🔧 Development</button>
+    <button class="prod" onclick="showEnv('production')">🚀 Production</button>
+  </div>
+
+  <div id="env-section"></div>
+
+  <script>
+    const envs = {
+      development: {
+        "คนงาน.พัฒนา": "app-darayar.invoice-appdarayarworkersdev.workers.dev",
+        "ดูตัวอย่างURL": "*-app-darayar.invoice-appdarayarworkersdev.workers.dev"
+      },
+      production: {
+        "คนงาน.พัฒนา": "app-darayar.invoice-appdarayarworkersdev.workers.dev",
+        "ดูตัวอย่างURL": "*-app-darayar.invoice-appdarayarworkersdev.workers.dev"
+      }
+    };
+
+    function showEnv(env) {
+      const vars = envs[env];
+      let html = `<div class="env-title">${env === 'development' ? '🔧 Environment: Development' : '🚀 Environment: Production'}</div>`;
+      html += `<table><tr><th>Variable</th><th>Value</th></tr>`;
+      for (const key in vars) {
+        html += `<tr><td>${key}</td><td>${vars[key]}</td></tr>`;
+      }
+      html += `</table>`;
+      document.getElementById("env-section").innerHTML = html;
+    }
+
+    // แสดง Development เป็นค่าเริ่มต้น
+    showEnv('development');
+  </script>
+</body>
+</html>
