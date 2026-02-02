@@ -1,0 +1,90 @@
+### https://www.darayar.online/API
+darayar.online, *.darayar.online
+Universal
+2026-03-14
+(Managed)
+Review Universal Certificate for darayar.online, *.darayar.online
+The certificates in the pack listed below are managed and auto-renewed by Cloudflare.
+
+Certificate	Expiration	
+ECDSA SHA256	2026-03-14(Managed by Cloudflare)
+Certificate Validity Period
+3 months
+Certificate validation method
+TXT
+Certificate Authority
+Google Trust Services
+
+darayar.online, *.darayar.online
+Backup
+2026-03-14
+(Managed)
+Review Backup Certificate for darayar.online, *.darayar.online
+This Backup certificate has not been deployed. It will be deployed automatically by Cloudflare in the event of a certificate revocation or key compromise. Learn more.
+The certificates in the pack listed below are managed and auto-renewed by Cloudflare.
+
+Certificate	Expiration	
+ECDSA SHA384	2026-03-14(Managed by Cloudflare)
+Certificate Validity Period
+3 months
+Certificate validation method
+TXT
+Certificate Authority
+Let's Encrypt
+
+## List Certificate Packs
+Get https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/ssl/certificate_packs
+
+## Announce creating a custom hostname
+POST https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/custom_hostnames
+
+## Display custom host name
+GET https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/custom_hostnames
+
+## Get custom hostname configuration details
+GET https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/custom_hostnames/:identifier
+
+## Custom Hostname Configuration Update Patch
+PATCH https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/custom_hostnames/:identifier
+
+# Delete custom hostname (and issued SSL certificate)
+DELETE https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/custom_hostnames/:identifier
+
+# Configure Zone to Enable TLS 1.3
+Get https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/settings/tls_1_3
+
+# รับการตั้งค่าการเขียน HTTPS ใหม่อัตโนมัติ (Automatically receive new HTTPS writing settings)
+Get https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/settings/automatic_https_rewrites
+
+# เปลี่ยนการตั้งค่าการเขียน HTTPS ใหม่อัตโนมัติ (Automatically reset HTTPS write settings)
+Patch https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/settings/automatic_https_rewrite
+
+# รับการตั้งค่าการเข้ารหัสฉวยโอกาส (Acquire Opportunistic Encryption Settings)
+Get https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/settings/opportunistic_encryption
+
+# Change Opportunistic Encryption Settings
+Patch https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/settings/opportunistic_encryption
+
+# Get Minimum TLS Version setting
+Get https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/settings/min_tls_version
+
+# Change Minimum TLS Version setting
+Patch https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/settings/min_tls_version
+
+# Get Security Header (HSTS) setting
+Get https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/settings/security_header
+
+# Change Security Header (HSTS) setting
+Patch https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/settings/security_header
+
+# Get Always Use HTTPS setting
+Get https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/settings/always_use_https
+
+# Change Always Use HTTPS setting
+Patch https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/settings/always_use_https
+
+# Get Cipher Suites Allowlist setting
+Get https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/settings/ciphers
+
+# Change Cipher Suites Allowlist setting
+Patch https://api.cloudflare.com/client/v4/zones/e003b4a518f37d9a037838b007a05efa/settings/ciphers
