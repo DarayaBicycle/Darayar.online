@@ -1,8 +1,11 @@
-curl https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+# Verify TXT exists (if still present)
+dig +short TXT _cf-custom-hostname.darayar.online
 
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+# Check public TLS certificate and SNI
+openssl s_client -connect darayar.online:443 -servername darayar.online
 
-sudo apt-get update && sudo apt-get install cloudflare-warp
-sudo sysctl -w net.ipv4.ip_forward=1
-warp-cli connector new eyJhIjoiODQ5NWJkOTdiZDcwYTliYjliZTFlYTkwM2YzYWI2NmIiLCJ0IjoiMTQ3OWNlM2ItMGEwNy00MDMzLWFmZjYtNTJlMzQyOTUyZjM4IiwicyI6IlZ2OVRaR1F5VjM5SThmWTZaZmV2NkJacmRuSlFjMWt4UjlXQ0NKTzIwaWFYOWNHTEtlcVN3Q2hjQ3oySmRLdjFQaVJ1Uk12TUg1a2E5R1VScTJHTmtBPT0ifQ==
-warp-cli connect
+# Quick HTTP response check
+curl -I https://darayar.online
+
+# If you need to test Cloudflare edge to origin behavior, use --resolve to point hostname to origin IP
+curl -I --resolve darayar.online:443:ORIGIN_IP https://darayar.online
