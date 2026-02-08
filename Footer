@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <title>Plack-7S1P-2000mAh — DARAYAR.ONLINE</title>
+  <style>
+    body { font-family: "Prompt","TH Sarabun New",sans-serif; background:#f9fafc; margin:0; color:#222; }
+    .container { max-width:1080px; margin:auto; padding:24px; }
+    .card { background:#fff; border:2px solid #003366; border-radius:12px; box-shadow:0 6px 16px rgba(0,0,0,0.1); }
+    .header { display:flex; gap:24px; padding:24px; align-items:center; border-bottom:2px solid #003366; }
+    .logo { width:160px; }
+    .logo img { max-width:100%; }
+    .thumb img { width:320px; border-radius:10px; border:1px solid #ccc; }
+    h1 { color:#003366; margin:0; font-size:28px; }
+    .subtitle { color:#00cc99; margin:6px 0 12px; }
+    .price { font-size:26px; color:#003366; font-weight:bold; }
+    .section { padding:20px; }
+    .specs, .variants { width:100%; border-collapse:collapse; margin-top:12px; }
+    .specs th, .specs td, .variants th, .variants td { border:1px solid #ccc; padding:10px; text-align:left; }
+    .specs th, .variants th { background:#e6f2ff; }
+    .btn { display:inline-block; padding:8px 14px; background:#00cc99; color:#fff; border-radius:6px; text-decoration:none; font-weight:bold; }
+    .btn:hover { background:#009973; }
+    .footer { display:flex; justify-content:space-between; align-items:center; padding:20px; border-top:2px solid #003366; }
+    .qr img { width:120px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <!-- Header -->
+      <div class="header">
+        <div class="logo">
+          <img src="https://img.freepik.com/premium-vector/modern-d-logo-design_921227-71.jpg"></body></html>
+        </div>
+        <div>
+          <h1>Plack-7S1P-2000mAh (25.9V / 29.4V)</h1>
+          <div class="subtitle">PowerPack Mini18650 — Lithium-ion Battery Pack พร้อมวงจร BMS</div>
+          <div class="price">฿350</div>
+        </div>
+        <div class="thumb">
+          <img src="https://private-user-images.githubusercontent.com/186970865/533714046-8da521f2-0696-4961-b00d-ea28b4783f2a.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Njc5MzA3NjksIm5iZiI6MTc2NzkzMDQ2OSwicGF0aCI6Ii8xODY5NzA4NjUvNTMzNzE0MDQ2LThkYTUyMWYyLTA2OTYtNDk2MS1iMDBkLWVhMjhiNDc4M2YyYS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTA5JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDEwOVQwMzQ3NDlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mNjJkMzM5MmFkYmQ2NWUwZWUzZGNhYzI0M2ViYmUxOGQxNmQxNDM4ZjRlNTkzM2JlNGQyYTEzNDYyNTNhNTg1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.rUrU5olFMABwFaJsdfmN76GCWBzovESJHgesAQPNgQw">
+        </div>
+      </div>
+
+      <!-- Specifications -->
+      <div class="section">
+        <h2>รายละเอียดสินค้า</h2>
+        <table class="specs">
+          <tr><th>โครงสร้าง</th><td>7 เซลล์อนุกรม × 1 เซลล์ขนาน (7S1P)</td></tr>
+          <tr><th>แรงดันไฟฟ้า Nominal</th><td>25.9V</td></tr>
+          <tr><th>แรงดันไฟฟ้าเต็ม</th><td>29.4V</td></tr>
+          <tr><th>ความจุ</th><td>2000mAh</td></tr>
+          <tr><th>ประเภทเซลล์</th><td>Lithium-ion 18650</td></tr>
+          <tr><th>วงจรป้องกัน</th><td>BMS (Overcharge, Overdischarge, Short-circuit)</td></tr>
+        </table>
+      </div>
+
+      <!-- Variants -->
+      <div class="section">
+        <h2>รุ่นย่อย / อุปกรณ์เสริม</h2>
+        <table class="variants">
+          <tr>
+            <th>รุ่น</th><th>รายละเอียด</th><th>ราคา</th><th>สั่งซื้อ</th>
+          </tr>
+          <tr>
+            <td>Plack-7S1P-2000mAh (ขั้ว JST)</td>
+            <td>พร้อมสาย JST มาตรฐาน</td>
+            <td>฿360</td>
+            <td><a class="btn" href="#order-jst">สั่งซื้อ</a></td>
+          </tr>
+          <tr>
+            <td>Plack-7S1P-2000mAh (XT60)</td>
+            <td>พร้อมสาย XT60 สำหรับงานหุ่นยนต์</td>
+            <td>฿370</td>
+            <td><a class="btn" href="#order-xt60">สั่งซื้อ</a></td>
+          </tr>
+          <tr>
+            <td>สายชาร์จ 7S</td>
+            <td>สายชาร์จสำหรับเครื่องชาร์จ 29.4V</td>
+            <td>฿120</td>
+            <td><a class="btn" href="#order-cable">สั่งซื้อ</a></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="qr">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://github.com/DarayaBicycle/Darayar.online/issues/9" alt="QR ตรวจสอบสินค้า">
+        </div>
+        <div>
+          <strong>Serial No.:</strong> PL7S-1P-2000mAh<br>
+          <small>ตรวจสอบสินค้าได้ที่ QR หรือ https://www.darayar.online/</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
