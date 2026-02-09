@@ -1,0 +1,11 @@
+# Verify TXT exists (if still present)
+dig +short TXT _cf-custom-hostname.darayar.online
+
+# Check public TLS certificate and SNI
+openssl s_client -connect darayar.online:443 -servername darayar.online
+
+# Quick HTTP response check
+curl -I https://darayar.online
+
+# If you need to test Cloudflare edge to origin behavior, use --resolve to point hostname to origin IP
+curl -I --resolve darayar.online:443:ORIGIN_IP https://darayar.online

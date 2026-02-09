@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Responses Log</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+    }
+    h1 {
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: #eee;
+    }
+    .prompt {
+      color: #0066cc;
+      font-weight: bold;
+    }
+    .response {
+      color: #333;
+    }
+    .usage {
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>AI Responses Log</h1>
+  <table>
+    <tr>
+      <th>Prompt</th>
+      <th>Response</th>
+      <th>Usage</th>
+    </tr>
+    <tr>
+      <td class="prompt">Tell me a joke about Cloudflare</td>
+      <td class="response">I've got one! Why did Cloudflare's security team go to therapy? Because they were struggling to "bounce" back from all the DDoS attacks!</td>
+      <td class="usage">Prompt: 50 | Completion: 34 | Total: 84</td>
+    </tr>
+    <tr>
+      <td class="prompt">Who won the world series in 2020?</td>
+      <td class="response">The Los Angeles Dodgers won the World Series in 2020, defeating the Tampa Bay Rays in six games (4-2). It was the Dodgers' first World Series title since 1988.</td>
+      <td class="usage">Prompt: 31 | Completion: 41 | Total: 72</td>
+    </tr>
+  </table>
+</body>
+</html>
