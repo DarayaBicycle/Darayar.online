@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DALAYAR PowerPack Catalog</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ffc107;
+            --text-color: #333;
+            --border-color: #dee2e6;
+        }
+
+        body {
+            font-family: 'Sarabun', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 2.5em;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        /* Table Section */
+        .summary-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            overflow-x: auto; /* Scroll on mobile */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .price-tag {
+            font-weight: bold;
+            color: #d9534f;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background-color: #eee;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 1.25em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .badge-best { background-color: #ffc107; color: #000; }
+        .badge-flagship { background-color: #dc3545; color: #fff; }
+        .badge-ind { background-color: #6c757d; color: #fff; }
+        .badge-new { background-color: #28a745; color: #fff; }
+
+        .specs-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 15px 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .specs-list li {
+            margin-bottom: 5px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .specs-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-price {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #d9534f;
+        }
+
+        .sku {
+            font-size: 0.8em;
+            color: #999;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #343a40;
+            color: white;
+            margin-top: 50px;
+        }
+
+        .contact-info {
+            margin-top: 15px;
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .product-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>DALAYAR PowerPack Series</h1>
+        <p>High Performance Lithium-ion Battery Packs | Catalog 2025</p>
+        <p style="font-size: 0.9em; color: #888;">DALAYAR Bicycle Lifestyle Company</p>
+    </header>
+
+    <div class="container">
+
+        <section class="summary-section">
+            <h2 style="margin-top: 0;">📊 ตารางเปรียบเทียบสเปกและราคา (Specification Summary)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>รุ่น (Model)</th>
+                        <th>Voltage</th>
+                        <th>Capacity</th>
+                        <th>Energy</th>
+                        <th>Application</th>
+                        <th>ราคา (THB)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>P18650-A</td>
+                        <td>12V</td>
+                        <td>5Ah</td>
+                        <td>60 Wh</td>
+                        <td>UPS, CCTV</td>
+                        <td class="price-tag">950.-</td>
+                    </tr>
+                    <tr>
+                        <td>P18650-B</td>
+                        <td>24V</td>
+                        <td>10Ah</td>
+                        <td>240 Wh</td>
+                        <td>E-Wheelchair</td>
+                        <td class="price-tag">1,490.-</td>
+                    </tr>
+                    <tr>
+                        <td>P18650-C</td>
+                        <td>36V</td>
+                        <td>20Ah</td>
+                        <td>720 Wh</td>
+                        <td>E-Bike</td>
+                        <td class="price-tag">1,590.-</td>
+                    </tr>
+                    <tr style="background-color: #fff3cd;">
+                        <td><strong>P18650-D (Best Seller)</strong></td>
+                        <td>48V</td>
+                        <td>10Ah</td>
+                        <td>480 Wh</td>
+                        <td>Scooter, E-Bike</td>
+                        <td class="price-tag">2,290.-</td>
+                    </tr>
+                    <tr>
+                        <td>P18650-F</td>
+                        <td>48V</td>
+                        <td>20Ah</td>
+                        <td>960 Wh</td>
+                        <td>Solar, Delivery</td>
+                        <td class="price-tag">2,590.-</td>
+                    </tr>
+                    <tr>
+                        <td>P18650-G</td>
+                        <td>60V</td>
+                        <td>20Ah</td>
+                        <td>1,200 Wh</td>
+                        <td>Industrial</td>
+                        <td class="price-tag">4,950.-</td>
+                    </tr>
+                    <tr>
+                        <td>P18650-H</td>
+                        <td>72V</td>
+                        <td>20Ah</td>
+                        <td>1,440 Wh</td>
+                        <td>High Performance</td>
+                        <td class="price-tag">6,980.-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="product-grid">
+
+            <div class="product-card">
+                <img src="https://cmxbattery.com/wp-content/uploads/2019/11/12v-5ah-lithium-ion-battery.jpg" alt="12V 5Ah Battery" class="product-image">
+                <div class="product-info">
+                    <div class="product-title">PowerPack 12V 5Ah</div>
+                    <ul class="specs-list">
+                        <li><strong>Voltage:</strong> 12V</li>
+                        <li><strong>Capacity:</strong> 5Ah (60Wh)</li>
+                        <li><strong>Size:</strong> 20x70x115 mm</li>
+                        <li><strong>Use:</strong> ไฟส่องสว่าง, CCTV</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="sku">SKU: P18650-A</span>
+                        <span class="card-price">฿950</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://camo.githubusercontent.com/7db5d442245ac53116a8a9239515d565936ff4246034288ff37ac71d073fc7e8/68747470733a2f2f7777772e646e6b706f7765722e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032352f30342f444e4b2d4c5442375334504331384d2d32352e39562d31302e3441682d342e6a7067" alt="24V 10Ah Battery" class="product-image">
+                <div class="product-info">
+                    <span class="badge badge-new">New Gen (1000 Cycles)</span>
+                    <div class="product-title">PowerPack 24V 10Ah</div>
+                    <ul class="specs-list">
+                        <li><strong>Voltage:</strong> 24V</li>
+                        <li><strong>Capacity:</strong> 10Ah (240Wh)</li>
+                        <li><strong>Cycle Life:</strong> 1,000+ รอบ</li>
+                        <li><strong>Use:</strong> วีลแชร์ไฟฟ้า, หุ่นยนต์</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="sku">SKU: P18650-B</span>
+                        <span class="card-price">฿1,490</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://www.dnkpower.com/wp-content/uploads/2022/12/36V-20Ah-Li-ion-Battery.jpg" alt="36V 20Ah Battery" class="product-image">
+                <div class="product-info">
+                    <div class="product-title">PowerPack 36V 20Ah</div>
+                    <ul class="specs-list">
+                        <li><strong>Voltage:</strong> 36V</li>
+                        <li><strong>Capacity:</strong> 20Ah (720Wh)</li>
+                        <li><strong>Highlight:</strong> Cost Effective</li>
+                        <li><strong>Use:</strong> E-Bike มาตรฐาน</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="sku">SKU: P18650-C</span>
+                        <span class="card-price">฿1,590</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" style="border: 2px solid #ffc107;">
+                <img src="https://litechpower.com/wp-content/uploads/2024/07/LiTech-Li-ion-48V-10Ah-13S2P-Battery-Pack-03.jpg" alt="48V 10Ah Battery" class="product-image">
+                <div class="product-info">
+                    <span class="badge badge-best">🔥 Best Seller</span>
+                    <div class="product-title">PowerPack 48V 10Ah</div>
+                    <ul class="specs-list">
+                        <li><strong>Voltage:</strong> 48V</li>
+                        <li><strong>Capacity:</strong> 10.2Ah (BAK Cells)</li>
+                        <li><strong>Grade:</strong> 3C EV Grade (แรง)</li>
+                        <li><strong>Use:</strong> สกู๊ตเตอร์, E-Bike ยอดนิยม</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="sku">SKU: P18650-D</span>
+                        <span class="card-price">฿2,290</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://www.dnkpower.com/wp-content/uploads/2023/05/48V-20Ah-li-ion-battery-for-e-scooter.jpg" alt="48V 20Ah Battery" class="product-image">
+                <div class="product-info">
+                    <span class="badge badge-new">High Capacity</span>
+                    <div class="product-title">PowerPack 48V 20Ah</div>
+                    <ul class="specs-list">
+                        <li><strong>Voltage:</strong> 48V</li>
+                        <li><strong>Capacity:</strong> 20Ah (960Wh)</li>
+                        <li><strong>Feature:</strong> วิ่งไกล / โซลาร์เซลล์</li>
+                        <li><strong>Use:</strong> Delivery, Off-grid</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="sku">SKU: P18650-F</span>
+                        <span class="card-price">฿2,590</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://bto.pl/files/_product/2843/__product_big/do-skutera-elektrycznego-60V-20Ah-16S8P-1.webp" alt="60V 20Ah Battery" class="product-image">
+                <div class="product-info">
+                    <span class="badge badge-ind">Industrial Grade</span>
+                    <div class="product-title">PowerPack 60V 20Ah</div>
+                    <ul class="specs-list">
+                        <li><strong>Voltage:</strong> 60V</li>
+                        <li><strong>Capacity:</strong> 20Ah (1.2 kWh)</li>
+                        <li><strong>Power:</strong> Heavy Duty Load</li>
+                        <li><strong>Use:</strong> เครื่องจักร, มอเตอร์ไซค์ 60V</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="sku">SKU: P18650-G</span>
+                        <span class="card-price">฿4,950</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://www.dnkpower.com/wp-content/uploads/2022/12/72V-30AH-lithium-battery.jpg" alt="72V 20Ah Battery" class="product-image">
+                <div class="product-info">
+                    <span class="badge badge-flagship">🚀 Flagship Model</span>
+                    <div class="product-title">PowerPack 72V 20Ah</div>
+                    <ul class="specs-list">
+                        <li><strong>Voltage:</strong> 72V (High Voltage)</li>
+                        <li><strong>Capacity:</strong> 20Ah (1.44 kWh)</li>
+                        <li><strong>Speed:</strong> รองรับความเร็วสูง</li>
+                        <li><strong>Use:</strong> Racing EV, Backup</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="sku">SKU: P18650-H</span>
+                        <span class="card-price">฿6,980</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="summary-section" style="margin-top: 40px;">
+            <h3>🛡️ เงื่อนไขการรับประกัน (Warranty)</h3>
+            <ul style="color: #555;">
+                <li>รับประกันสินค้า <strong>12 เดือน</strong> สำหรับความผิดพลาดจากการผลิต</li>
+                <li>บริการตรวจเช็คสภาพฟรีตลอดอายุการใช้งาน</li>
+                <li>ไม่คุ้มครองกรณี: น้ำเข้า, ดัดแปลงวงจร, ใช้เครื่องชาร์จผิดประเภท, หรืออุบัติเหตุ</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        <h3>DALAYAR Bicycle Lifestyle Company</h3>
+        <p>229 อ.มัญจาคีรี จ.ขอนแก่น 40160</p>
+        <div class="contact-info">
+            <p>📞 Tel: <a href="tel:+66840148961">084-014-8961</a></p>
+            <p>📧 Email: <a href="mailto:Darayadintt2543@gmail.com">Darayadintt2543@gmail.com</a></p>
+        </div>
+        <p style="font-size: 0.8em; margin-top: 20px; color: #888;">&copy; 2025 DALAYAR. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

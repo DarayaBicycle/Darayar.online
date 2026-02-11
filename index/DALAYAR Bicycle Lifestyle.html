@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerPack Battery - DALAYAR Bicycle Lifestyle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. CSS หลักของโบรชัวร์ --- */
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #333333;
+            --accent-color: #fca311;
+            --bg-color: #f4f6f8;
+            --text-color: #444;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Kanit', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; background: #fff; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        
+        /* Header & Hero */
+        header { background: var(--secondary-color); color: #fff; padding: 20px 40px; text-align: center; border-bottom: 5px solid var(--primary-color); }
+        header h2 { font-weight: 300; font-size: 1.2rem; opacity: 0.9; }
+        header h1 { font-weight: 800; font-size: 2.5rem; text-transform: uppercase; }
+        .hero { background: linear-gradient(135deg, #0066cc 0%, #004080 100%); color: white; padding: 60px 40px; text-align: center; }
+        .hero h1 { font-size: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .badge { display: inline-block; background: var(--accent-color); color: #000; padding: 5px 15px; border-radius: 20px; font-weight: bold; margin-bottom: 15px; }
+        
+        /* Content */
+        .section { padding: 40px; border-bottom: 1px solid #eee; }
+        .section-title { text-align: center; font-size: 2rem; color: var(--primary-color); margin-bottom: 30px; position: relative; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .feature-card { background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color); }
+        
+        /* Table */
+        .specs-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .specs-table th, .specs-table td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        .specs-table th { background-color: var(--primary-color); color: #fff; }
+        
+        /* Footer */
+        footer { background: var(--secondary-color); color: #fff; padding: 40px; text-align: center; }
+        .contact-box { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-top: 20px; display: inline-block; }
+        .btn { display: inline-block; background: var(--accent-color); color: #000; padding: 10px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; }
+
+        /* --- 2. CSS สำหรับ Cookie Banner --- */
+        .cookie-container {
+            position: fixed; bottom: -150px; left: 0; right: 0;
+            background-color: #222; color: #fff; padding: 20px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.3); z-index: 9999;
+            transition: bottom 0.5s ease-in-out;
+            display: flex; justify-content: center;
+        }
+        .cookie-container.show { bottom: 0; }
+        .cookie-content {
+            max-width: 900px; width: 100%; display: flex;
+            align-items: center; justify-content: space-between; gap: 20px;
+        }
+        .cookie-btn {
+            background-color: var(--accent-color); color: #000;
+            border: none; padding: 10px 30px; border-radius: 5px;
+            cursor: pointer; font-weight: bold; font-family: 'Kanit', sans-serif;
+            white-space: nowrap;
+        }
+        .cookie-btn:hover { background-color: #ffb700; }
+        
+        @media (max-width: 600px) {
+            .cookie-content { flex-direction: column; text-align: center; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h2>DALAYAR Bicycle Lifestyle Company Limited</h2>
+            <h1>PowerPack Battery</h1>
+        </header>
+
+        <div class="hero">
+            <span class="badge">Made in Thailand</span>
+            <h1>พลังขับเคลื่อน... ที่ไม่มีสะดุด</h1>
+            <p>แบตเตอรี่ลิเธียมไอออน 18650 ประสิทธิภาพสูง ประกอบด้วย SpotWeld Pro</p>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">สเปกยอดนิยม</h2>
+            <table class="specs-table">
+                <thead>
+                    <tr><th>รุ่น</th><th>แรงดันไฟ</th><th>การใช้งาน</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>PowerPack 12V</td><td>12.6V</td><td>ลำโพงบลูทูธ, ไฟส่องสว่าง</td></tr>
+                    <tr><td>PowerPack 24V</td><td>24V</td><td>จักรยานไฟฟ้าเล็ก, วีลแชร์</td></tr>
+                    <tr><td>PowerPack 36V</td><td>36V</td><td>จักรยานไฟฟ้าทั่วไป</td></tr>
+                    <tr><td>PowerPack 48V</td><td>48V</td><td>E-Bike ความเร็วสูง</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <h3>มั่นใจในคุณภาพ DALAYAR</h3>
+            <div class="contact-box">
+                <p>📞 Tel: [เบอร์โทรศัพท์]</p>
+                <p>💬 Line: [Line ID]</p>
+                <a href="#" class="btn">สอบถาม / สั่งประกอบ</a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="cookie-banner" class="cookie-container">
+        <div class="cookie-content">
+            <p>🍪 <strong>เว็บไซต์นี้ใช้คุกกี้</strong> เพื่อเก็บข้อมูลสถิติและมอบประสบการณ์ที่ดีที่สุด การใช้งานเว็บไซต์ถือว่าคุณยอมรับนโยบายของเรา</p>
+            <button id="accept-cookie-btn" class="cookie-btn">ยอมรับทั้งหมด</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            const cookieBanner = document.getElementById("cookie-banner");
+            const acceptBtn = document.getElementById("accept-cookie-btn");
+
+            // --- 1. ฟังก์ชันนี้จะทำงานเมื่อ "เคยยอมรับแล้ว" หรือ "เพิ่งกดยอมรับ" ---
+            function runScriptsAfterConsent() {
+                console.log("✅ Cookie Consent Granted: Running Scripts...");
+
+                // >>> ใส่โค้ด Tracking ของคุณตรงนี้ <<< 
+                // เช่น Google Analytics, Facebook Pixel
+                // ตัวอย่าง:
+                // setupGoogleAnalytics(); 
+            }
+
+            // --- 2. ตรวจสอบการยอมรับ ---
+            if (!localStorage.getItem("cookieConsent")) {
+                // ถ้ายังไม่เคยยอมรับ -> แสดง Banner
+                setTimeout(() => cookieBanner.classList.add("show"), 500);
+            } else {
+                // ถ้ายอมรับแล้ว -> รันสคริปต์เลย
+                runScriptsAfterConsent();
+            }
+
+            // --- 3. เมื่อกดปุ่มยอมรับ ---
+            acceptBtn.addEventListener("click", function() {
+                localStorage.setItem("cookieConsent", "true"); // บันทึกความจำ
+                cookieBanner.classList.remove("show");         // ซ่อนป้าย
+                runScriptsAfterConsent();                      // เริ่มทำงาน
+            });
+        });
+    </script>
+</body>
+</html>
