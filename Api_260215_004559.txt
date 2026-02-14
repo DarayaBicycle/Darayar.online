@@ -1,0 +1,84 @@
+API
+Zone ID
+2df74f07e1a09041a8488f833e83629d
+
+Account ID
+9cd664878c16dca5a638d4694d6f51e2
+
+curl "https://api.cloudflare.com/client/v4/zones" \
+  --request POST \
+  --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+  --json '{
+    "name": "<2df74f07e1a09041a8488f833e83629d>",
+    "account": {
+        "id": "<9cd664878c16dca5a638d4694d6f51e2>"
+    }
+  }'
+
+{ "success": false, "errors": [ { "code": 9106, "message": "Missing X-Auth-Email header" }, { "code": 9107, "message": "Missing X-Auth-Key header" } ], "messages": [], "result": null }
+
+https://sites.google.com/view/darayar/Home
+
+darayar.online
+
+HTML5[HOMEPAGEDARAYR.ONLINE]
+
+;; ;; Domain: darayar.online. ;; Exported: 2026-01-30 21:51:33 ;; ;; This file is intended for use for informational and archival ;; purposes ONLY and MUST be edited before use on a production ;; DNS server. In particular, you must: ;; -- update the SOA record with the correct authoritative name server ;; -- update the SOA record with the contact e-mail address information ;; -- update the NS record(s) with the authoritative name servers for this domain. ;; ;; For further information, please consult the BIND documentation ;; located on the following website: ;; ;; http://www.isc.org/ ;; ;; And RFC 1035: ;; ;; http://www.ietf.org/rfc/rfc1035.txt ;; ;; Please note that we do NOT offer technical support for any use ;; of this zone data, the BIND name server, or any other third-party ;; DNS software. ;; ;; Use at your own risk. ;; SOA Record darayar.online	3600	IN	SOA	cash.ns.cloudflare.com. dns.cloudflare.com. 2052147649 10000 2400 604800 3600 ;; NS Records darayar.online.	86400	IN	NS	cash.ns.cloudflare.com. darayar.online.	86400	IN	NS	indie.ns.cloudflare.com. ;; A Records darayar.online.	1	IN	A	100.84.136.208 ; cf_tags=cf-proxied:false ;; CNAME Records www.darayar.online.	1	IN	CNAME	darayar.online. ; cf_tags=cf-proxied:false ;; MX Records darayar.online.	1	IN	MX	79 route2.mx.cloudflare.net. darayar.online.	1	IN	MX	73 route3.mx.cloudflare.net. darayar.online.	1	IN	MX	55 route1.mx.cloudflare.net. ;; TXT Records cf2024-1._domainkey.darayar.online.	1	IN	TXT	"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78k" "m4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB" darayar.online.	1	IN	TXT	"v=spf1 include:_spf.mx.cloudflare.net ~all" darayar.online.	1	IN	TXT	"google-site-verification=igfnZluBhAfH72T_uv7auy2ctqoWxKQMcauRGaugXU0" darayar.online.	1	IN	TXT	"google-site-verification=YCoJ8v1su4cZsdWaECATduCgbt09BnUt6iwp6FL7WZ8" darayar.online.	1	IN	TXT	"canva-domain-verify=741fa14e-27d6-4316-aa6c-4a949e72df93" _dmarc.darayar.online.	1	IN	TXT	"v=DMARC1; p=none; rua=mailto:yaradin2000@gmail.com" _dmarc.darayar.online.	1	IN	TXT	"v=DMARC1; p=none; rua=mailto:b24d300ffd5c4504863e102be9d26c01@dmarc-reports.cloudflare.net"
+
+curl \
+  https://api.cloudflare.com/client/v4/accounts/8495bd97bd70a9bb9be1ea903f3ab66b/ai/run/@cf/meta/llama-3-8b-instruct \
+  -H "Authorization: Bearer {API_TOKEN}" \
+  -d '{"messages":[{"role":"system","content":"You are a friendly assistant that helps write stories"},{"role":"user","content":"Write a short story about a llama that goes on a journey to find an orange cloud "}]}'
+
+Java
+
+async function run(model, input) {
+  const response = await fetch(
+    `https://api.cloudflare.com/client/v4/accounts/8495bd97bd70a9bb9be1ea903f3ab66b/ai/run/${model}`,
+    {
+      headers: { Authorization: "Bearer {API_TOKEN}" },
+      method: "POST",
+      body: JSON.stringify(input),
+    }
+  );
+  const result = await response.json();
+  return result;
+}
+
+run("@cf/meta/llama-3-8b-instruct", {
+  messages: [
+    {
+      role: "system",
+      content: "You are a friendly assistan that helps write stories",
+    },
+    {
+      role: "user",
+      content:
+        "Write a short story about a llama that goes on a journey to find an orange cloud ",
+    },
+  ],
+}).then((response) => {
+  console.log(JSON.stringify(response));
+});
+
+import requests
+
+API_BASE_URL = "https://api.cloudflare.com/client/v4/accounts/8495bd97bd70a9bb9be1ea903f3ab66b/ai/run/"
+headers = {"Authorization": "Bearer {API_TOKEN}"}
+
+def run(model, inputs):
+    input = { "messages": inputs }
+    response = requests.post(f"{API_BASE_URL}{model}", headers=headers, json=input)
+    return response.json()
+
+inputs = [
+    { "role": "system", "content": "You are a friendly assistan that helps write stories" },
+    { "role": "user", "content": "Write a short story about a llama that goes on a journey to find an orange cloud "}
+];
+output = run("@cf/meta/llama-3-8b-instruct", inputs)
+print(output)
+
+8495bd97bd70a9bb9be1ea903f3ab66b
+
+
+https://dalayar.oneapp.dev
