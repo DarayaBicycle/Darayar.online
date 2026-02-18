@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DALAYAR Product Labels</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Prompt:wght@300;500&display=swap');
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+        }
+
+        /* Common Label Style */
+        .label-card {
+            width: 350px;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            position: relative;
+            border: 1px solid #ddd;
+        }
+
+        .brand-header {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .brand-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: 2px;
+            font-size: 24px;
+        }
+
+        .brand-header p {
+            margin: 0;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #aaa;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .specs {
+            display: flex;
+            justify-content: space-between;
+            border-top: 2px solid #eee;
+            border-bottom: 2px solid #eee;
+            padding: 10px 0;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+
+        .spec-item b {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            font-size: 11px;
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            background: #f9f9f9;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10px;
+        }
+
+        .qr-code {
+            width: 50px;
+            height: 50px;
+            background: #333; /* Placeholder for QR */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 8px;
+        }
+
+        /* Product Specific Colors */
+        .battery { border-top: 8px solid #00d2ff; }
+        .lube { border-top: 8px solid #ccff00; }
+        .safety { border-top: 8px solid #ff4b2b; }
+
+    </style>
+</head>
+<body>
+
+    <div class="label-card battery">
+        <div class="brand-header">
+            <h1>DALAYAR</h1>
+            <p>Bicycle Lifestyle Co., Ltd.</p>
+        </div>
+        <div class="content">
+            <div class="product-name">PowerPack 18650</div>
+            <div style="font-size: 12px; color: #666;">High-Performance Lithium-Ion Cell</div>
+            
+            <div class="specs">
+                <div class="spec-item">CAPACITY <b>3500mAh</b></div>
+                <div class="spec-item">VOLTAGE <b>3.7V</b></div>
+                <div class="spec-item">RATE <b>35A</b></div>
+            </div>
+
+            <div class="warning-box">
+                <b>WARNING:</b> Do not incinerate, disassemble, or expose to high heat. Use only with compatible chargers.
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                DALAYAR BICYCLE LIFESTYLE CO Ltd.<br>
+                Bangkok, Thailand<br>
+                <b>www.dalayar.com</b>
+            </div>
+            <div class="qr-code">SCAN ME</div>
+        </div>
+    </div>
+
+    <div class="label-card lube">
+        <div class="brand-header">
+            <h1>DALAYAR</h1>
+            <p>Bicycle Lifestyle Co., Ltd.</p>
+        </div>
+        <div class="content">
+            <div class="product-name">Dry-Tech Chain Lube</div>
+            <div style="font-size: 12px; color: #666;">Advanced Weather Protection</div>
+            
+            <div class="specs">
+                <div class="spec-item">VOLUME <b>120ml</b></div>
+                <div class="spec-item">TYPE <b>Ceramic</b></div>
+                <div class="spec-item">DURABILITY <b>High</b></div>
+            </div>
+
+            <div style="font-size: 11px; line-height: 1.4;">
+                • Reduces friction and noise<br>
+                • Repels dust and contaminants<br>
+                • Long-lasting formula for road & MTB
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                MADE IN THAILAND<br>
+                Eco-Friendly Formula<br>
+                <b>#RideWithDalayar</b>
+            </div>
+            <div class="qr-code">AUTHENTIC</div>
+        </div>
+    </div>
+
+    <div class="label-card safety">
+        <div class="brand-header">
+            <h1>DALAYAR</h1>
+            <p>Bicycle Lifestyle Co., Ltd.</p>
+        </div>
+        <div class="content">
+            <div class="product-name">BeamGuard X1</div>
+            <div style="font-size: 12px; color: #666;">Smart Rear Safety Light</div>
+            
+            <div class="specs">
+                <div class="spec-item">LUMENS <b>100 lm</b></div>
+                <div class="spec-item">WATERPROOF <b>IPX6</b></div>
+                <div class="spec-item">USB <b>Type-C</b></div>
+            </div>
+
+            <div class="warning-box" style="background:#fce4ec; border-color:#e91e63; color:#880e4f;">
+                Do not stare directly into the beam. Keep out of reach of children.
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                Model: DL-X1-2024<br>
+                Regulatory: CE, RoHS<br>
+                <b>Designed for Cyclists</b>
+            </div>
+            <div class="qr-code">WARRANTY</div>
+        </div>
+    </div>
+
+</body>
+</html>

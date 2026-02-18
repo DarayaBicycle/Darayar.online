@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Darayar — จัดการสินค้า</title>
+  <link rel="stylesheet" href="darayar_products.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Darayar — จัดการสินค้า (ส่วนตัว)</h1>
+
+    <form id="product-form">
+      <h2>เพิ่ม / แก้ไข สินค้า</h2>
+      <input type="hidden" id="prod-id" />
+      <label>SKU: <input id="sku" required /></label>
+      <label>ชื่อสินค้า: <input id="name" required /></label>
+      <label>ราคา (THB): <input id="price" type="number" step="0.01" required /></label>
+      <label>จำนวน: <input id="quantity" type="number" required /></label>
+      <label>คำอธิบาย: <textarea id="description"></textarea></label>
+      <button type="submit">บันทึก</button>
+      <button type="button" id="clear-btn">ล้างฟอร์ม</button>
+    </form>
+
+    <section class="controls">
+      <button id="export-json">ดาวน์โหลด JSON</button>
+      <input type="file" id="import-file" accept=".json" />
+      <button id="load-sample">โหลดตัวอย่าง (Power Pack 28650)</button>
+      <button id="clear-storage">ลบทั้งหมด</button>
+    </section>
+
+    <section>
+      <h2>รายการสินค้า</h2>
+      <ul id="product-list"></ul>
+    </section>
+  </div>
+
+  <script>
+    // storage key
+    const STORAGE_KEY = 'darayar_products_v1';
+
+    // DOM
+    const form = document.getElementById('product-form');
+    const idField = document.getElementById('prod-id');
+    const skuField = document.getElementById('sku');
+    const nameField = document.getElementById('name');
+    const priceField = document.getElementById('price');
+    const quantityField = document.getElementById('quantity');
+    const descriptionField = document.getElementById('description');
+    const listEl = document.getElementById('product-list');
+    const exportBtn = document.getElementById('export-json');
+    const importFile = document.getElementById('import-file');
+    const loadSample = document.getElementById('load-sample');
+    const clearStorageBtn = document.getElementById('clear-storage');
+    const clearBtn = document.getElementById('clear-btn');
+
+    function readStorage() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch(e) {
+        console.error(e);
+        return [];
+      }
+    }
+
+    function writeStorage(data) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data, null, 2));
+      renderList();
+    }
+
+    function renderList() {
+      const items = readStorage();
+      listEl.innerHTML = '';
+      if (items.length === 0) {
+        listEl.innerHTML = '<li>ยังไม่มีสินค้า</li>';
+        return;
+      }
+      items.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <strong>${item.name}</strong> (${item.sku}) — ${item.price} THB — จำนวน: ${item.quantity}
+          <div class="actions">
+            <button data-id="${item.id}" class="edit">แก้ไข</button>
+            <button data-id="${item.id}" class="del">ลบ</button>
+          </div>
+        `;
+        listEl.appendChild(li);
+      });
+    }
+
+    function genId() {
+      return 'prod-' + Date.now();
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const items = readStorage();
+      const id = idField.value || genId();
+      const now = new Date().toISOString();
+      const product = {
+        id,
+        sku: skuField.value.trim(),
+        name: nameField.value.trim(),
+        description: descriptionField.value.trim(),
+        price: parseFloat(priceField.value) || 0,
+        quantity: parseInt(quantityField.value) || 0,
+        created_at: idField.value ? (items.find(i => i.id === id)?.created_at || now) : now,
+        updated_at: now
+      };
+
+      const existingIndex = items.findIndex(i => i.id === id);
+      if (existingIndex >= 0) {
+        items[existingIndex] = { ...items[existingIndex], ...product };
+      } else {
+        items.push(product);
+      }
+      writeStorage(items);
+      form.reset();
+      idField.value = '';
+    });
+
+    listEl.addEventListener('click', e => {
+      if (e.target.classList.contains('edit')) {
+        const id = e.target.dataset.id;
+        const item = readStorage().find(i => i.id === id);
+        if (!item) return;
+        idField.value = item.id;
+        skuField.value = item.sku;
+        nameField.value = item.name;
+        priceField.value = item.price;
+        quantityField.value = item.quantity;
+        descriptionField.value = item.description;
+      }
+      if (e.target.classList.contains('del')) {
+        const id = e.target.dataset.id;
+        const items = readStorage().filter(i => i.id !== id);
+        writeStorage(items);
+      }
+    });
+
+    exportBtn.addEventListener('click', () => {
+      const data = readStorage();
+      const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'darayar_products.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    importFile.addEventListener('change', async (e) => {
+      const f = e.target.files[0];
+      if (!f) return;
+      try {
+        const text = await f.text();
+        const data = JSON.parse(text);
+        if (!Array.isArray(data)) throw new Error('ไฟล์ JSON ต้องเป็นอาเรย์ของสินค้า');
+        writeStorage(data);
+        importFile.value = '';
+      } catch(err) {
+        alert('ไม่สามารถนำเข้าไฟล์: ' + err.message);
+      }
+    });
+
+    loadSample.addEventListener('click', () => {
+      const sample = [
+        {
+          "id": "prod-0001",
+          "sku": "PLACK28650",
+          "name": "Power Pack 28650",
+          "description": "แบตเตอรี่ Power Pack ขนาด 28650 ความจุสูง",
+          "price": 1290.00,
+          "quantity": 25,
+          "created_at": new Date().toISOString(),
+          "updated_at": new Date().toISOString()
+        }
+      ];
+      writeStorage(sample);
+    });
+
+    clearStorageBtn.addEventListener('click', () => {
+      if (confirm('ลบข้อมูลสินค้าทั้งหมดใช่หรือไม่?')) {
+        localStorage.removeItem(STORAGE_KEY);
+        renderList();
+      }
+    });
+
+    clearBtn.addEventListener('click', () => {
+      form.reset();
+      idField.value = '';
+    });
+
+    // initial render
+    renderList();
+  </script>
+</body>
+</html>
+
+
+
+
+prod.json
+
+[
+  {
+    "id": "prod-0001",
+    "sku": "PLACK18650",
+    "name": "Power Pack 18650",
+    "description": "แบตเตอรี่ Power Pack ขนาด 18650 ความจุสูง เหมาะสำหรับอุปกรณ์พกพา",
+    "price": 1290.00,
+    "currency": "THB",
+    "quantity": 25,
+    "specs": {
+      "capacity_mAh": 5000,
+      "voltage_V": 3.7,
+      "type": "Lithium-ion",
+      "dimensions_mm": "28 x 65"
+    },
+    "created_at": "2026-01-20T00:00:00Z",
+    "updated_at": "2026-01-20T00:00:00Z"
+  }
+]
